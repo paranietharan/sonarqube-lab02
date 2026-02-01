@@ -10,7 +10,7 @@ public class UserService {
     public void findUser(String username) throws SQLException {
         try (Connection conn = getConnection();
                 PreparedStatement st = conn.prepareStatement(
-                        "SELECT * FROM users WHERE name = ?")) {
+                        "SELECT name FROM users WHERE name = ?")) {
             st.setString(1, username);
             st.executeQuery();
         }
